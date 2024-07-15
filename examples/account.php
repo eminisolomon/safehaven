@@ -5,18 +5,18 @@ use Eminisolomon\SafeHaven\SafeHaven;
 
 
 //Create Account
-SafeHaven::account()->createAccount("Savings", "Olakunlevpn", [
+SafeHaven::account()->createAccount("Savings", "SolomonDev", [
     "verified" => true,
     "notes" => ""
 ]);
 
 //Create Sub Account
 SafeHaven::account()->createSubAccount(
-    "Wasiu",
-    "Olakunlevpn",
+    "Tolulope",
+    "SolomonDev",
     "07035014587",
-    "olakunlevpn@live.com",
-    "Olakunlevpn",
+    "SolomonDev@live.com",
+    "SolomonDev",
     "22395929708",
     false,
     [],
@@ -32,11 +32,11 @@ SafeHaven::account()->createSubAccount(
 
 SafeHaven::account()->updateSubAccountById(
     "659fed3a48143e0024db7e90",
-    "WasiuMayahn",
-    "Olakunlevpn",
+    "Eminisolomon",
+    "SolomonDev",
     "07035014587",
-    "olakunlevpn@live.com",
-    "Olakunlevpn",
+    "SolomonDev@live.com",
+    "SolomonDev",
     "22395929708",
     false,
     [],
@@ -51,12 +51,12 @@ SafeHaven::account()->updateSubAccountById(
 //Update Sub Account using the acccount externalReference
 
 SafeHaven::account()->updateSubAccountByReference(
-    "Olakunlevpn",
-    "WasiuMayahn",
-    "Olakunlevpn",
+    "SolomonDev",
+    "Eminisolomon",
+    "SolomonDev",
     "070351223457",
-    "olakunlevpn@live.com",
-    "Olakunlevpn",
+    "SolomonDev@live.com",
+    "SolomonDev",
     "22390000708",
     false,
     [],
