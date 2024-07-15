@@ -1,14 +1,14 @@
 <?php
 
-namespace MaylancerDev\SafeHaven\Util;
+namespace Eminisolomon\SafeHaven\Util;
 
 use Exception;
-use MaylancerDev\SafeHaven\Exceptions\SafeHavenException;
+use Eminisolomon\SafeHaven\Exceptions\SafeHavenException;
 
 abstract class Util
 {
-   public static function convertToObject($response): array
-   {
+    public static function convertToObject($response): array
+    {
         $body = json_decode($response->getBody()->getContents(), true);
 
         if (!is_array($body)) {

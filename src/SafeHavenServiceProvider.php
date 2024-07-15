@@ -1,10 +1,10 @@
 <?php
 
-namespace MaylancerDev\SafeHaven;
+namespace Eminisolomon\SafeHaven;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use MaylancerDev\SafeHaven\Renderers\SafeHavenBladeComponent;
+use Eminisolomon\SafeHaven\Renderers\SafeHavenBladeComponent;
 
 class SafeHavenServiceProvider extends ServiceProvider
 {

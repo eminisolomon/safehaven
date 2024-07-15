@@ -1,13 +1,13 @@
 <?php
 
-namespace MaylancerDev\SafeHaven;
+namespace Eminisolomon\SafeHaven;
 
 use Carbon\Carbon;
 use Firebase\JWT\JWT;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Cache;
-use MaylancerDev\SafeHaven\Exceptions\SafeHavenException;
-use MaylancerDev\SafeHaven\Util\Util;
+use Eminisolomon\SafeHaven\Exceptions\SafeHavenException;
+use Eminisolomon\SafeHaven\Util\Util;
 
 abstract class OAuth
 {
@@ -36,7 +36,7 @@ abstract class OAuth
     }
 
 
-    public function setClientID():static
+    public function setClientID(): static
     {
         if (empty(SafeHaven::config('client_id'))) {
             throw SafeHavenException::ClientIDRequired();
@@ -57,16 +57,18 @@ abstract class OAuth
     }
     public function generateClientAssertion(): string
     {
-        return Cache::remember($this->cachePrefix().'client_assertion', $this->getCacheDuration(), function () {
-            return JWT::encode($this->payload(),
+        return Cache::remember($this->cachePrefix() . 'client_assertion', $this->getCacheDuration(), function () {
+            return JWT::encode(
+                $this->payload(),
                 SafeHaven::config('keys.private'),
-                $this->algorithm);
+                $this->algorithm
+            );
         });
     }
 
     public function token()
     {
-        return Cache::remember($this->cachePrefix().'safehaven_access_token', $this->getCacheTokenDuration(), function () {
+        return Cache::remember($this->cachePrefix() . 'safehaven_access_token', $this->getCacheTokenDuration(), function () {
             try {
                 $response = $this->requestToken();
                 $tokenData = Util::convertToObject($response);
@@ -94,14 +96,15 @@ abstract class OAuth
     private function cacheTokenData($tokenData): void
     {
         $expiresIn = $tokenData['expires_in'];
-        Cache::put($this->cachePrefix().'safehaven_access_token_duration', $expiresIn, now()->addSeconds($expiresIn));
+        Cache::put($this->cachePrefix() . 'safehaven_access_token_duration', $expiresIn, now()->addSeconds($expiresIn));
     }
 
     protected function getCacheTokenDuration()
     {
-        return Cache::get($this->cachePrefix().'safehaven_access_token_duration',
-                               $this->getCacheDuration()
-                );
+        return Cache::get(
+            $this->cachePrefix() . 'safehaven_access_token_duration',
+            $this->getCacheDuration()
+        );
     }
 
 
@@ -113,5 +116,4 @@ abstract class OAuth
     {
         return 30 * 60;
     }
-
 }

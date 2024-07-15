@@ -1,6 +1,6 @@
 <?php
 
-namespace MaylancerDev\SafeHaven;
+namespace Eminisolomon\SafeHaven;
 
 
 use Illuminate\Support\Arr;
@@ -32,7 +32,7 @@ class Manager
         $services = SafeHaven::config('services');
 
         foreach ($services as $name => $class) {
-            self::macro($name, function() use ($class) {
+            self::macro($name, function () use ($class) {
                 return self::getInstance($class);
             });
         }
@@ -41,8 +41,8 @@ class Manager
     /**
      * Get an item out of the config using dot notation.
      *
-     * @param  $key
-     * @param  null  $default
+     * @param string $key
+     * @param mixed|null $default
      * @return mixed
      */
     public function config($key, $default = null)
@@ -75,6 +75,4 @@ class Manager
 
         $this->getConfigUsing = $callback;
     }
-
-
 }

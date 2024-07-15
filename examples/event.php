@@ -1,7 +1,7 @@
 <?php
 
-use MaylancerDev\SafeHaven\Events\SafeHavenCheckoutCallbackEvent;
-use MaylancerDev\SafeHaven\Events\SafeHavenCheckoutClosedEvent;
+use Eminisolomon\SafeHaven\Events\SafeHavenCheckoutCallbackEvent;
+use Eminisolomon\SafeHaven\Events\SafeHavenCheckoutClosedEvent;
 
 //
 //protected $listen = [

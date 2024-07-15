@@ -1,10 +1,10 @@
 <?php
 
-namespace MaylancerDev\SafeHaven\Http\Controllers;
+namespace Eminisolomon\SafeHaven\Http\Controllers;
 
 use Illuminate\Http\Request;
-use MaylancerDev\SafeHaven\Events\SafeHavenCheckoutCallbackEvent;
-use MaylancerDev\SafeHaven\Events\SafeHavenCheckoutClosedEvent;
+use Eminisolomon\SafeHaven\Events\SafeHavenCheckoutCallbackEvent;
+use Eminisolomon\SafeHaven\Events\SafeHavenCheckoutClosedEvent;
 
 class SafeHavenCheckoutController
 {

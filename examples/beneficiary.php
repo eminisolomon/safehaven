@@ -1,5 +1,6 @@
 <?php
-use MaylancerDev\SafeHaven\SafeHaven;
+
+use Eminisolomon\SafeHaven\SafeHaven;
 
 
 //Get all user beneficiary

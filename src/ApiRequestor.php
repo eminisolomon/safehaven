@@ -1,10 +1,10 @@
 <?php
 
-namespace MaylancerDev\SafeHaven;
+namespace Eminisolomon\SafeHaven;
 
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
-use MaylancerDev\SafeHaven\Exceptions\SafeHavenException;
+use Eminisolomon\SafeHaven\Exceptions\SafeHavenException;
 
 class ApiRequestor extends OAuth
 {

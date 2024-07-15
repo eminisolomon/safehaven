@@ -1,8 +1,9 @@
 <?php
 
-namespace MaylancerDev\SafeHaven\Exceptions;
+namespace Eminisolomon\SafeHaven\Exceptions;
 
 use Exception;
+
 class SafeHavenException extends Exception
 {
     public static function ClientIDRequired(): self
@@ -33,5 +34,4 @@ class SafeHavenException extends Exception
     {
         return new self("Method {$name} does not exist.");
     }
-
 }

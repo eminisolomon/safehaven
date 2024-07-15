@@ -1,5 +1,6 @@
 <?php
-use MaylancerDev\SafeHaven\SafeHaven;
+
+use Eminisolomon\SafeHaven\SafeHaven;
 
 
 //BVN verification
@@ -35,8 +36,3 @@ SafeHaven::verification()->validateIdentity(
 // Send one-time password for BVN verification
 $number = "09036604991";
 SafeHaven::verification()->dispatchOtpToNumber($number);
-
-
-
-
-

@@ -1,6 +1,6 @@
 <?php
 
-use MaylancerDev\SafeHaven\SafeHaven;
+use Eminisolomon\SafeHaven\SafeHaven;
 
 
 //Create a virtual account

@@ -1,17 +1,17 @@
 <?php
 
-use MaylancerDev\SafeHaven\Client;
-use MaylancerDev\SafeHaven\Service\AccountService;
-use MaylancerDev\SafeHaven\Service\BeneficiaryService;
-use MaylancerDev\SafeHaven\Service\BillingService;
-use MaylancerDev\SafeHaven\Service\CheckoutService;
-use MaylancerDev\SafeHaven\Service\TransferService;
-use MaylancerDev\SafeHaven\Service\VerificationService;
-use MaylancerDev\SafeHaven\Service\VirtualAccountService;
+use Eminisolomon\SafeHaven\Client;
+use Eminisolomon\SafeHaven\Service\AccountService;
+use Eminisolomon\SafeHaven\Service\BeneficiaryService;
+use Eminisolomon\SafeHaven\Service\BillingService;
+use Eminisolomon\SafeHaven\Service\CheckoutService;
+use Eminisolomon\SafeHaven\Service\TransferService;
+use Eminisolomon\SafeHaven\Service\VerificationService;
+use Eminisolomon\SafeHaven\Service\VirtualAccountService;
 
 return [
     'environment' => 'sandbox', //sandbox || production
-    'company_domain' => 'https://maylancer.org',
+    'company_domain' => 'https://solomonolatunji.dev',
     'client_id' => env('SAFE_HAVEN_CLIENT_ID', 'f1c8e97be92ab33fa19ef7518beab395'),
     'sandbox_endpoint' => 'https://api.sandbox.safehavenmfb.com',
     'production_endpoint' => 'https://api.safehavenmfb.com',
@@ -52,7 +52,7 @@ PSOIBF+P0H/YAZI=
 -----END PRIVATE KEY-----
 EOD',
 
-    'public' => '<<<EOD
+        'public' => '<<<EOD
 -----BEGIN CERTIFICATE-----
 MIIDIjCCAougAwIBAgIUC2hEPUPS7gHaxKeb+fMEnsS7lrEwDQYJKoZIhvcNAQEL
 BQAwgaIxCzAJBgNVBAYTAk5HMQwwCgYDVQQIDANPeW8xDzANBgNVBAcMBkliYWRh

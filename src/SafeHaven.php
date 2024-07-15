@@ -1,6 +1,6 @@
 <?php
 
-namespace MaylancerDev\SafeHaven;
+namespace Eminisolomon\SafeHaven;
 
 use Illuminate\Support\Facades\Facade;
 

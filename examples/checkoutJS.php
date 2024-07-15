@@ -18,15 +18,7 @@
     $metadata = [];
     @endphp
 
-    <x-safeHaven-checkout id="paynow" class="btn-primary" :$buttonText
-                          :$customer
-                          :$amount
-                          :$settlementAccount
-                          :$redirectUrl
-                          :$webhookUrl
-                          :$customIconUrl
-                          :$metadata
-    />
+    <x-safeHaven-checkout id="paynow" class="btn-primary" :$buttonText :$customer :$amount :$settlementAccount :$redirectUrl :$webhookUrl :$customIconUrl :$metadata />
 
 
     //Listen to callback events in your checkout page
@@ -44,9 +36,9 @@
 </div>
 
 <?php
-use MaylancerDev\SafeHaven\SafeHaven;
+
+use Eminisolomon\SafeHaven\SafeHaven;
 
 //Verify checkout transaction with the referenceCode from the checkout.js
 $referenceCode = "61e985180e69308aa37a7a94";
 SafeHaven::checkout()->verifyTransaction($referenceCode);
-

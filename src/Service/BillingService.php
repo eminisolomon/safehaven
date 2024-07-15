@@ -1,9 +1,9 @@
 <?php
 
-namespace MaylancerDev\SafeHaven\Service;
+namespace Eminisolomon\SafeHaven\Service;
 
-use MaylancerDev\SafeHaven\Exceptions\SafeHavenException;
-use MaylancerDev\SafeHaven\Util\Util;
+use Eminisolomon\SafeHaven\Exceptions\SafeHavenException;
+use Eminisolomon\SafeHaven\Util\Util;
 
 class BillingService extends AbstractService
 {

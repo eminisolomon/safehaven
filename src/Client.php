@@ -1,9 +1,9 @@
 <?php
 
-namespace MaylancerDev\SafeHaven;
+namespace Eminisolomon\SafeHaven;
 
 
-use MaylancerDev\SafeHaven\Service\AbstractService;
+use Eminisolomon\SafeHaven\Service\AbstractService;
 
 class Client extends AbstractService
 {

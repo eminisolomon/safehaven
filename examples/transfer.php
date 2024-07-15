@@ -1,6 +1,6 @@
 <?php
 
-use MaylancerDev\SafeHaven\SafeHaven;
+use Eminisolomon\SafeHaven\SafeHaven;
 
 // Get a list of available  banks
 SafeHaven::transfer()->getBanks();

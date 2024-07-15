@@ -1,37 +1,35 @@
-# Getting started 
-
+# Getting started
 
 ### Base Installation
 
 SafeHaven Laravel can be installed via Composer:
 
 ```bash
-composer require maylancer/safehaven-laravel
+composer require eminisolomon/safehaven
 ```
-
 
 Publishing the config file
 
 ```bash
-php artisan vendor:publish --provider="MaylancerDev\SafeHaven\SafeHavenServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Eminisolomon\SafeHaven\SafeHavenServiceProvider" --tag="config"
 ```
 
 This is the default content of the config file:
 
-```php 
+```php
 
-use MaylancerDev\SafeHaven\Client;
-use MaylancerDev\SafeHaven\Service\AccountService;
-use MaylancerDev\SafeHaven\Service\BeneficiaryService;
-use MaylancerDev\SafeHaven\Service\BillingService;
-use MaylancerDev\SafeHaven\Service\CheckoutService;
-use MaylancerDev\SafeHaven\Service\TransferService;
-use MaylancerDev\SafeHaven\Service\VerificationService;
-use MaylancerDev\SafeHaven\Service\VirtualAccountService;
+use Eminisolomon\SafeHaven\Client;
+use Eminisolomon\SafeHaven\Service\AccountService;
+use Eminisolomon\SafeHaven\Service\BeneficiaryService;
+use Eminisolomon\SafeHaven\Service\BillingService;
+use Eminisolomon\SafeHaven\Service\CheckoutService;
+use Eminisolomon\SafeHaven\Service\TransferService;
+use Eminisolomon\SafeHaven\Service\VerificationService;
+use Eminisolomon\SafeHaven\Service\VirtualAccountService;
 
 return [
     'environment' => 'sandbox', //sandbox || production
-    'company_domain' => 'https://maylancer.org',
+    'company_domain' => 'https://solomonolatunji.dev',
     'client_id' => env('SAFE_HAVEN_CLIENT_ID', ''),
     'sandbox_endpoint' => 'https://api.sandbox.safehavenmfb.com',
     'production_endpoint' => 'https://api.safehavenmfb.com',
@@ -77,11 +75,8 @@ To utilize SafeHaven services in your Laravel application, secure API credential
 
 For comprehensive instructions on API key generation, consult the [official SafeHaven documentation](https://safehavenmfb.readme.io/reference/creating-an-app).
 
-
 Publishing the views file is optional:
 
 ```bash
-php artisan vendor:publish --provider="MaylancerDev\SafeHaven\SafeHavenServiceProvider" --tag="views"
+php artisan vendor:publish --provider="Eminisolomon\SafeHaven\SafeHavenServiceProvider" --tag="views"
 ```
-
-

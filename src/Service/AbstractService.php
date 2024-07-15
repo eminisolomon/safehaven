@@ -1,9 +1,9 @@
 <?php
 
-namespace MaylancerDev\SafeHaven\Service;
+namespace Eminisolomon\SafeHaven\Service;
 
-use MaylancerDev\SafeHaven\ApiRequestor;
-use MaylancerDev\SafeHaven\Exceptions\SafeHavenException;
+use Eminisolomon\SafeHaven\ApiRequestor;
+use Eminisolomon\SafeHaven\Exceptions\SafeHavenException;
 
 abstract  class AbstractService
 {

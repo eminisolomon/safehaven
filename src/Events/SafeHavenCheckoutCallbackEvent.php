@@ -1,7 +1,7 @@
 <?php
 
 
-namespace MaylancerDev\SafeHaven\Events;
+namespace Eminisolomon\SafeHaven\Events;
 
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;

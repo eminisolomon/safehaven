@@ -1,4 +1,4 @@
-@use('MaylancerDev\SafeHaven\SafeHaven')
+@use('Eminisolomon\SafeHaven\SafeHaven')
 <div>
 
     <button {{ $attributes }}

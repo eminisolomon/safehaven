@@ -1,10 +1,11 @@
 <?php
 
-namespace MaylancerDev\SafeHaven\Renderers;
+namespace Eminisolomon\SafeHaven\Renderers;
 
 
 use Illuminate\View\Component;
 use Illuminate\View\View;
+
 class SafeHavenBladeComponent extends Component
 {
 
@@ -21,13 +22,13 @@ class SafeHavenBladeComponent extends Component
 
     public function __construct(
         string $buttonText,
-         float $amount,
-         array $customer,
-         array $settlementAccount,
+        float $amount,
+        array $customer,
+        array $settlementAccount,
         string $redirectUrl,
         string $webhookUrl = '',
         string $customIconUrl = '',
-         array $metadata = [],
+        array $metadata = [],
     ) {
         $this->buttonText         = $buttonText;
         $this->amount             = $amount;
@@ -43,5 +44,4 @@ class SafeHavenBladeComponent extends Component
     {
         return view('safehaven::checkout');
     }
-
 }

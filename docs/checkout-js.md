@@ -1,39 +1,39 @@
 # Checkout JS Integration
 
 ## Display SafeHaven Checkout Button
+
 Embeds the SafeHaven Checkout JS script into your Laravel application, providing a simple payment button.
 
 ```html
 <div>
-    @php
-        $buttonText = "Make Payment";
-        $customer = ['firstName' => 'John', 'lastName' => 'Doe', 'emailAddress' => 'johndoe@example.com', 'phoneNumber' => '+2348032273616'];
-        $amount = 100;
-        $settlementAccount = ['bankCode' => '090286', 'accountNumber' => '0113413052'];
-        $redirectUrl = 'https://example.com/redirect';
-        $customIconUrl = '';
-        $webhookUrl = '';
-        $metadata = [];
-    @endphp
+  @php $buttonText = "Make Payment"; $customer = ['firstName' => 'John',
+  'lastName' => 'Doe', 'emailAddress' => 'johndoe@example.com', 'phoneNumber' =>
+  '+2348032273616']; $amount = 100; $settlementAccount = ['bankCode' =>
+  '090286', 'accountNumber' => '0113413052']; $redirectUrl =
+  'https://example.com/redirect'; $customIconUrl = ''; $webhookUrl = '';
+  $metadata = []; @endphp
 
-    <x-safeHaven-checkout id="paynow" class="btn-primary"
-                          :$buttonText
-                          :$customer
-                          :$amount
-                          :$settlementAccount
-                          :$redirectUrl
-                          :$webhookUrl
-                          :$customIconUrl
-                          :$metadata />
+  <x-safeHaven-checkout
+    id="paynow"
+    class="btn-primary"
+    :$buttonText
+    :$customer
+    :$amount
+    :$settlementAccount
+    :$redirectUrl
+    :$webhookUrl
+    :$customIconUrl
+    :$metadata
+  />
 </div>
-
 ```
 
 ## Verify Checkout Transaction
+
 Verify the transaction using the reference code provided by Checkout JS.
 
 ```php
-use MaylancerDev\SafeHaven\SafeHaven;
+use Eminisolomon\SafeHaven\SafeHaven;
 
 $referenceCode = "61e985180e69308aa37a7a94";
 SafeHaven::checkout()->verifyTransaction($referenceCode);
@@ -62,8 +62,8 @@ In JavaScript, listen to `safeHavenCheckoutClosed` and `safeHavenCheckoutCallbac
 In Laravel, use event listeners to handle `SafeHavenCheckoutCallbackEvent` and `SafeHavenCheckoutClosedEvent`:
 
 ```php
-use MaylancerDev\SafeHaven\Events\SafeHavenCheckoutCallbackEvent;
-use MaylancerDev\SafeHaven\Events\SafeHavenCheckoutClosedEvent;
+use Eminisolomon\SafeHaven\Events\SafeHavenCheckoutCallbackEvent;
+use Eminisolomon\SafeHaven\Events\SafeHavenCheckoutClosedEvent;
 
 // In your EventServiceProvider, register listeners for these events:
 protected $listen = [
