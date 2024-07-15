@@ -70,7 +70,7 @@ If you discover any security-related issues, please email realsolomon@outlook.co
 ## Credits
 
 - [Solomon Olatunji](https://github.com/eminisolomon)
-- [All Contributors](../../contributors)
+- [All Contributors](CONTRIBUTORS.md)
 
 ## License
 
