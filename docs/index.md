@@ -12,5 +12,3 @@ Welcome to the SafeHaven Laravel Package documentation. This collection of guide
 - [Verification Management](verification.md)
 - [Virtual Account Management](virtual-account.md)
 - [Webhook Implementation](webhooks.md)
-
-

@@ -65,14 +65,17 @@ class AccountService extends AbstractService
 
 
     /**
-     * This creates a new sub-account based on the specified information in the request body
+     * Creates a new sub-account based on the specified information in the request body.
      *
      * @param string $firstName
      * @param string $lastName
      * @param string $phoneNumber
      * @param string $emailAddress
      * @param string $externalReference
-     * @param string $bvn
+     * @param string $identityType
+     * @param string|null $identityNumber
+     * @param string|null $identityId
+     * @param string|null $otp
      * @param bool $autoSweep
      * @param array $autoSweepDetails
      * @param array $metadata
@@ -80,23 +83,39 @@ class AccountService extends AbstractService
      * @return array
      * @throws SafeHavenException
      */
-    public function createSubAccount(string $firstName, string $lastName, string $phoneNumber, string $emailAddress, string $externalReference, string $bvn, bool $autoSweep = false, array $autoSweepDetails = [], array $metadata = [], string $callbackUrl = ''): array
-    {
+    public function createSubAccount(
+        string $firstName,
+        string $lastName,
+        string $phoneNumber,
+        string $emailAddress,
+        string $externalReference,
+        string $identityType,
+        ?string $identityNumber = null,
+        ?string $identityId = null,
+        ?string $otp = null,
+        bool $autoSweep = false,
+        array $autoSweepDetails = [],
+        array $metadata = [],
+        string $callbackUrl = ''
+    ): array {
         $payload = [
             "firstName"           => $firstName,
             "lastName"            => $lastName,
             "phoneNumber"         => $phoneNumber,
             "emailAddress"        => $emailAddress,
             "externalReference"   => $externalReference,
-            "bvn"                 => $bvn,
-            "autoSweepDetails"    => json_encode($autoSweepDetails),
+            "identityType"        => $identityType,
+            "identityNumber"      => $identityNumber,
+            "identityId"          => $identityId,
+            "otp"                 => $otp,
             "autoSweep"           => $autoSweep,
+            "autoSweepDetails"    => $autoSweepDetails,
             "callbackUrl"         => $callbackUrl,
-            "metadata"            => json_encode($metadata)
+            "metadata"            => $metadata,
         ];
-        $response =  $this->requestor->request('POST',  'accounts/subaccount', $payload);
+        $response =  $this->requestor->request('POST', 'accounts/v2/subaccount', $payload);
 
-        return  Util::convertToObject($response);
+        return Util::convertToObject($response);
     }
 
 
@@ -183,7 +202,7 @@ class AccountService extends AbstractService
      */
     public function updateAccountPreferences(string $accountID, array $notificationSettings = []): array
     {
-       $payload = ['notificationSettings' => $notificationSettings];
+        $payload = ['notificationSettings' => $notificationSettings];
 
         $response =  $this->requestor->request('PUT',  $this->buildPath('accounts/%s', $accountID), $payload);
 
@@ -205,6 +224,4 @@ class AccountService extends AbstractService
 
         return  Util::convertToObject($response);
     }
-
-
 }

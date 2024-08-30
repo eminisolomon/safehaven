@@ -1,7 +1,9 @@
 # Account Management
 
 ## Create Account
+
 Create a new main account.
+
 ```php
 $accountType = "Savings";
 $username = "johntimothy";
@@ -11,23 +13,48 @@ SafeHaven::account()->createAccount($accountType, $username, $additionalDetails)
 ```
 
 ## Create Sub Account
+
 Establish a new sub-account under a main account.
+
 ```php
-$name = "Wasiu";
-$parentUsername = "johntimothy";
+$name = "Solomon";
+$lastName = "Doe";
 $phone = "070350123456";
-$email = "johntimothy@live.com";
-$accountUsername = "johntimothy";
-$accountNumber = "22123456708";
+$email = "solomon.doe@live.com";
+$externalReference = "Solomon-Ref";
+$identityType = "BVN";
+$identityNumber = "22123456708";
+$identityId = "identityId123456";
+$otp = "123456";
 $isVerified = false;
 $subAccountDetails = [];
-$subAccountAdditionalDetails = ["verified" => true, "notes" => ""];
+$subAccountAdditionalDetails = [
+    "verified" => true,
+    "notes" => "Sub-account for Solomon"
+];
+$callbackUrl = "https://yourcallbackurl.com/handle-callback";
 
-SafeHaven::account()->createSubAccount($name, $parentUsername, $phone, $email, $accountUsername, $accountNumber, $isVerified, $subAccountDetails, $subAccountAdditionalDetails);
+SafeHaven::account()->createSubAccount(
+    $name,
+    $lastName,
+    $phone,
+    $email,
+    $externalReference,
+    $identityType,
+    $identityNumber,
+    $identityId,
+    $otp,
+    $isVerified,
+    $subAccountDetails,
+    $subAccountAdditionalDetails,
+    $callbackUrl
+);
 ```
 
 ## Update Sub Account
+
 Update existing sub-account information.
+
 ```php
 $subAccountId = "659fed3a48143e0024db7e90";
 $newName = "John Timothy";
@@ -48,7 +75,9 @@ SafeHaven::account()->updateSubAccountByReference($externalReference, $newName, 
 ```
 
 ## Fetch Accounts
+
 Retrieve a list of accounts (main or sub-accounts).
+
 ```php
 $pageNumber = 0;
 $pageSize = 10;
@@ -58,7 +87,9 @@ SafeHaven::account()->getAccounts($pageNumber, $pageSize, $isSubAccount);
 ```
 
 ## Fetch Single Account
+
 Get details of a specific account using its ID.
+
 ```php
 $accountId = "659ea57c48143e0024db3eb0";
 
@@ -66,7 +97,9 @@ SafeHaven::account()->getAccount($accountId);
 ```
 
 ## Update Account Preferences
+
 Modify notification preferences for an account.
+
 ```php
 $accountId = "id:659ea57c48143e0024db3eb0";
 $notificationSettings = [
@@ -80,7 +113,9 @@ SafeHaven::account()->updateAccountPreferences($accountId, $notificationSettings
 ```
 
 ## Account Statement
+
 Retrieve an account statement for a specified period.
+
 ```php
 $accountID = "659ea57c48143e0024db3eb0";
 $fromDate = "";  // Specify date in 'YYYY-MM-DD' format or leave empty
@@ -91,6 +126,5 @@ $limit = 100;
 
 SafeHaven::account()->getAccountStatement($accountID, $fromDate, $toDate, $type, $page, $limit);
 ```
-
 
 For more details, please refer to the [Safe Haven's API accounts set of endpoints and required parameters](https://safehavenmfb.readme.io/reference/accounts)

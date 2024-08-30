@@ -10,21 +10,24 @@ SafeHaven::account()->createAccount("Savings", "SolomonDev", [
     "notes" => ""
 ]);
 
-//Create Sub Account
+// Create Sub Account Example
 SafeHaven::account()->createSubAccount(
-    "Tolulope",
-    "SolomonDev",
-    "07035014587",
-    "SolomonDev@live.com",
-    "SolomonDev",
-    "22395929708",
-    false,
-    [],
+    "Tolulope",            // First name
+    "SolomonDev",          // Last name
+    "07035014587",         // Phone number with country code
+    "SolomonDev@live.com", // Email address
+    "SolomonDev-Ref",      // External reference
+    "BVN",                 // Identity type (e.g., BVN, NIN)
+    "22395929708",         // Identity number (e.g., BVN, NIN number)
+    "identityId123456",    // Identity ID from Safe Haven verification
+    "123456",              // OTP (One-Time Password)
+    false,                 // Auto-sweep flag
+    [],                    // Auto-sweep details (if any)
     [
         "verified" => true,
-        "notes" => ""
-    ],
-    ""
+        "notes" => "Sub-account for SolomonDev"
+    ],                    // Metadata
+    "https://yourcallbackurl.com/handle-callback" // Callback URL
 );
 
 
