@@ -67,8 +67,6 @@ class AccountService extends AbstractService
     /**
      * Creates a new sub-account based on the specified information in the request body.
      *
-     * @param string $firstName
-     * @param string $lastName
      * @param string $phoneNumber
      * @param string $emailAddress
      * @param string $externalReference
