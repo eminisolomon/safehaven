@@ -84,8 +84,6 @@ class AccountService extends AbstractService
      * @throws SafeHavenException
      */
     public function createSubAccount(
-        string $firstName,
-        string $lastName,
         string $phoneNumber,
         string $emailAddress,
         string $externalReference,
@@ -99,8 +97,6 @@ class AccountService extends AbstractService
         string $callbackUrl = ''
     ): array {
         $payload = [
-            "firstName"           => $firstName,
-            "lastName"            => $lastName,
             "phoneNumber"         => $phoneNumber,
             "emailAddress"        => $emailAddress,
             "externalReference"   => $externalReference,
