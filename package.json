@@ -1,0 +1,32 @@
+{
+  "name": "safehaven",
+  "version": "1.0.0",
+  "description": "[![Latest Version](https://img.shields.io/github/release/eminisolomon/safehaven.svg?style=flat-square)](https://github.com/eminisolomon/safehaven/releases) [![Latest Version on Packagist](https://img.shields.io/packagist/v/eminisolomon/safehaven.svg?style=flat-square)](https://packagist.org/packages/eminisolomon/safehaven) [![Total Downloads](https://img.shields.io/packagist/dt/eminisolomon/safehaven.svg?style=flat-square)](https://packagist.org/packages/eminisolomon/safehaven)",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eminisolomon/safehaven.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/eminisolomon/safehaven/issues"
+  },
+  "homepage": "https://github.com/eminisolomon/safehaven#readme",
+  "devDependencies": {
+    "vitepress": "^1.6.4",
+    "vue": "^3.5.25"
+  }
+}
