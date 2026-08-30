@@ -26,4 +26,7 @@ features:
   - title: Verification Services
     details: Verify BVN, NIN, and other identities directly from your app.
     link: /verification
+  - title: USSD Payments
+    details: Create USSD payment references and retrieve supported banks.
+    link: /ussd
 ---

@@ -49,4 +49,22 @@ $accountId = "65ae3938c88b2b0024e4dbaa";
 SafeHaven::virtual()->deleteAccount($accountId);
 ```
 
+## Virtual Account Transfer Status
+
+Check the status of a transfer into a virtual account.
+
+```php
+$sessionId = "virtual-transfer-session-id";
+SafeHaven::virtual()->getTransferStatus($sessionId);
+```
+
+## Get Virtual Transaction
+
+Retrieve the transaction associated with a virtual account.
+
+```php
+$accountId = "65ae3938c88b2b0024e4dbaa";
+SafeHaven::virtual()->getTransaction($accountId);
+```
+
 For more information, please refer to the [Safe Haven's API Virtual Account](https://safehavenmfb.readme.io/reference/virtual-accounts).

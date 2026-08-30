@@ -17,6 +17,14 @@ $billableID = '61e985180e69308aa37a7a94'; // Billing Service ID
 SafeHaven::billing()->getService($billableID);
 ```
 
+## Get Service Categories
+
+Retrieve the categories available for a service.
+
+```php
+SafeHaven::billing()->getServiceCategories($billableID);
+```
+
 ## Get Service Category Products
 
 Retrieve products within a specific service category.

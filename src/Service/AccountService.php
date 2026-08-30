@@ -112,6 +112,47 @@ class AccountService extends AbstractService
         return Util::convertToObject($response);
     }
 
+    /**
+     * Create a corporate sub-account after validating a company director.
+     *
+     * @param string $phoneNumber
+     * @param string $emailAddress
+     * @param string $externalReference
+     * @param string $identityId
+     * @param string $companyRegistrationNumber
+     * @param string $callbackUrl
+     * @param bool $autoSweep
+     * @param array $autoSweepDetails
+     * @return array
+     * @throws SafeHavenException
+     */
+    public function createCorporateSubAccount(
+        string $phoneNumber,
+        string $emailAddress,
+        string $externalReference,
+        string $identityId,
+        string $companyRegistrationNumber,
+        string $callbackUrl = '',
+        bool $autoSweep = false,
+        array $autoSweepDetails = []
+    ): array {
+        $payload = [
+            'phoneNumber' => $phoneNumber,
+            'emailAddress' => $emailAddress,
+            'externalReference' => $externalReference,
+            'identityType' => 'vID',
+            'identityId' => $identityId,
+            'companyRegistrationNumber' => $companyRegistrationNumber,
+            'callbackUrl' => $callbackUrl,
+            'autoSweep' => $autoSweep,
+            'autoSweepDetails' => $autoSweepDetails,
+        ];
+
+        $response = $this->requestor->request('POST', 'accounts/v2/subaccount/', $payload);
+
+        return Util::convertToObject($response);
+    }
+
 
     /**
      * Update sub-account using account  ID and based on the specified information in the request body

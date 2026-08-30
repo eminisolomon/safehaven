@@ -80,4 +80,37 @@ class VirtualAccountService extends AbstractService
         return  Util::convertToObject($response);
     }
 
+    /**
+     * Get the status of a transfer into a virtual account.
+     *
+     * @param string $sessionId
+     * @return array
+     * @throws SafeHavenException
+     */
+    public function getTransferStatus(string $sessionId): array
+    {
+        $response = $this->requestor->request('POST', 'virtual-accounts/status', [
+            'sessionId' => $sessionId,
+        ]);
+
+        return Util::convertToObject($response);
+    }
+
+    /**
+     * Get the transaction associated with a virtual account.
+     *
+     * @param string $virtualAccountId
+     * @return array
+     * @throws SafeHavenException
+     */
+    public function getTransaction(string $virtualAccountId): array
+    {
+        $response = $this->requestor->request(
+            'GET',
+            $this->buildPath('virtual-accounts/%s/transaction', $virtualAccountId)
+        );
+
+        return Util::convertToObject($response);
+    }
+
 }

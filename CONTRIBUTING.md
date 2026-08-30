@@ -52,4 +52,29 @@ If the project maintainer has any additional requirements, you will find them li
 
 - **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash them](https://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
 
+## Local development
+
+Install the PHP dependencies before running the test suite:
+
+```bash
+composer install
+```
+
+Run the checks locally:
+
+```bash
+composer test
+composer validate --strict --no-check-publish
+```
+
+The tests are organized as follows:
+
+- `tests/Unit` contains isolated service tests with mocked HTTP requestors.
+- `tests/Feature` contains Laravel package integration tests using Testbench.
+- `tests/Pest.php` applies the package test case to both suites.
+
+When adding or changing an API endpoint, update the matching service, add a unit test asserting the HTTP method, route, and payload, update the relevant documentation, and add or update an example where appropriate. Do not use live Safe Haven credentials in tests or examples.
+
+Before opening a pull request, ensure the test suite passes and review the diff for credentials, private keys, access tokens, and other sensitive data.
+
 **Happy coding**!

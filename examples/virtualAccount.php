@@ -36,3 +36,9 @@ SafeHaven::virtual()->updateAccount($accountId);
 //Delete a virtual account using the account ID
 $accountId = "65ae3938c88b2b0024e4dbaa";
 SafeHaven::virtual()->deleteAccount($accountId);
+
+// Get the status of a transfer into a virtual account
+SafeHaven::virtual()->getTransferStatus("session-id");
+
+// Get the transaction associated with a virtual account
+SafeHaven::virtual()->getTransaction($accountId);

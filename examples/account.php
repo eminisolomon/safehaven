@@ -12,8 +12,6 @@ SafeHaven::account()->createAccount("Savings", "SolomonDev", [
 
 // Create Sub Account Example
 SafeHaven::account()->createSubAccount(
-    "Tolulope",            // First name
-    "SolomonDev",          // Last name
     "07035014587",         // Phone number with country code
     "SolomonDev@live.com", // Email address
     "SolomonDev-Ref",      // External reference
@@ -28,6 +26,16 @@ SafeHaven::account()->createSubAccount(
         "notes" => "Sub-account for SolomonDev"
     ],                    // Metadata
     "https://yourcallbackurl.com/handle-callback" // Callback URL
+);
+
+// Create a corporate sub-account after validating a director's identity
+SafeHaven::account()->createCorporateSubAccount(
+    "+2347035014587",
+    "company@example.com",
+    "Company-Ref",
+    "validated-identity-id",
+    "RC123456",
+    "https://yourcallbackurl.com/handle-callback"
 );
 
 

@@ -6,6 +6,7 @@ use Eminisolomon\SafeHaven\Service\BeneficiaryService;
 use Eminisolomon\SafeHaven\Service\BillingService;
 use Eminisolomon\SafeHaven\Service\CheckoutService;
 use Eminisolomon\SafeHaven\Service\TransferService;
+use Eminisolomon\SafeHaven\Service\UssdPaymentService;
 use Eminisolomon\SafeHaven\Service\VerificationService;
 use Eminisolomon\SafeHaven\Service\VirtualAccountService;
 
@@ -26,6 +27,7 @@ return [
         'billing' => BillingService::class,
         'beneficiary' => BeneficiaryService::class,
         'transfer' => TransferService::class,
+        'ussd' => UssdPaymentService::class,
         'verification' => VerificationService::class,
         'checkout' => CheckoutService::class,
     ],

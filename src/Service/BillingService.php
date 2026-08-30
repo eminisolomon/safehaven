@@ -184,7 +184,7 @@ class BillingService extends AbstractService
             'statusUrl' => $statusUrl,
         ];
 
-        $response =  $this->requestor->request('POST', 'vas/pay/airtime', $payload);
+        $response =  $this->requestor->request('POST', 'vas/pay/data', $payload);
 
         return  Util::convertToObject($response);
     }

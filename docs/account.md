@@ -12,13 +12,11 @@ $additionalDetails = ["verified" => true, "notes" => ""];
 SafeHaven::account()->createAccount($accountType, $username, $additionalDetails);
 ```
 
-## Create Sub Account
+## Create Individual Sub Account
 
 Establish a new sub-account under a main account.
 
 ```php
-$name = "Solomon";
-$lastName = "Doe";
 $phone = "070350123456";
 $email = "solomon.doe@live.com";
 $externalReference = "Solomon-Ref";
@@ -26,17 +24,15 @@ $identityType = "BVN";
 $identityNumber = "22123456708";
 $identityId = "identityId123456";
 $otp = "123456";
-$isVerified = false;
-$subAccountDetails = [];
-$subAccountAdditionalDetails = [
+$autoSweep = false;
+$autoSweepDetails = [];
+$metadata = [
     "verified" => true,
     "notes" => "Sub-account for Solomon"
 ];
 $callbackUrl = "https://yourcallbackurl.com/handle-callback";
 
 SafeHaven::account()->createSubAccount(
-    $name,
-    $lastName,
     $phone,
     $email,
     $externalReference,
@@ -44,10 +40,25 @@ SafeHaven::account()->createSubAccount(
     $identityNumber,
     $identityId,
     $otp,
-    $isVerified,
-    $subAccountDetails,
-    $subAccountAdditionalDetails,
+    $autoSweep,
+    $autoSweepDetails,
+    $metadata,
     $callbackUrl
+);
+```
+
+## Create Corporate Sub Account
+
+Create a corporate sub-account after validating at least one company director.
+
+```php
+SafeHaven::account()->createCorporateSubAccount(
+    "+2348032187654",
+    "company@example.com",
+    "Company-Ref",
+    "validated-identity-id",
+    "RC1234567",
+    "https://yourcallbackurl.com/handle-callback"
 );
 ```
 
