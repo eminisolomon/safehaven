@@ -1,6 +1,6 @@
 # Safe Haven MFB PHP SDK
 
-[![Latest Version](https://img.shields.io/github/release/eminisolomon/safehaven.svg?style=flat-square)](https://github.com/eminisolomon/safehaven/releases)
+[![Latest Version](https://img.shields.io/github/release/solomonolatunji/safehaven.svg?style=flat-square)](https://github.com/solomonolatunji/safehaven/releases)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/eminisolomon/safehaven.svg?style=flat-square)](https://packagist.org/packages/eminisolomon/safehaven)
 [![Total Downloads](https://img.shields.io/packagist/dt/eminisolomon/safehaven.svg?style=flat-square)](https://packagist.org/packages/eminisolomon/safehaven)
 
@@ -86,7 +86,7 @@ If you discover any security-related issues, please email <iamsolomonolatunji@gm
 
 ## Credits
 
-- [Solomon Olatunji](https://github.com/eminisolomon)
+- [Solomon Olatunji](https://github.com/solomonolatunji)
 - Contributions are welcome—please see [CONTRIBUTING](CONTRIBUTING.md).
 
 ## License

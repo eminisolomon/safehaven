@@ -11,7 +11,7 @@ hero:
       link: /getting-started
     - theme: alt
       text: View on GitHub
-      link: https://github.com/eminisolomon/safehaven
+      link: https://github.com/solomonolatunji/safehaven
 
 features:
   - title: Account Management

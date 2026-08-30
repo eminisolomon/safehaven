@@ -15,16 +15,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/eminisolomon/safehaven.git"
+    "url": "git+https://github.com/solomonolatunji/safehaven.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/eminisolomon/safehaven/issues"
+    "url": "https://github.com/solomonolatunji/safehaven/issues"
   },
-  "homepage": "https://github.com/eminisolomon/safehaven#readme",
+  "homepage": "https://github.com/solomonolatunji/safehaven#readme",
   "devDependencies": {
     "vitepress": "^1.6.4",
     "vue": "^3.5.25"
