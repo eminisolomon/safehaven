@@ -2,7 +2,7 @@
 
 All notable changes to `safehaven` will be documented in this file
 
-## [Unreleased]
+## 3.0.0 - 2026-08-30
 
 ### Added
 
