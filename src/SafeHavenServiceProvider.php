@@ -2,9 +2,9 @@
 
 namespace Eminisolomon\SafeHaven;
 
+use Eminisolomon\SafeHaven\Renderers\SafeHavenBladeComponent;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Eminisolomon\SafeHaven\Renderers\SafeHavenBladeComponent;
 
 class SafeHavenServiceProvider extends ServiceProvider
 {
@@ -13,8 +13,6 @@ class SafeHavenServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
-
         $this->loadComponents();
         $this->loadPublishables();
         $this->bindManagerSingleton();
@@ -22,12 +20,7 @@ class SafeHavenServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'safehaven');
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-
-
-
     }
-
-
 
     public function bindManagerSingleton()
     {
@@ -43,37 +36,26 @@ class SafeHavenServiceProvider extends ServiceProvider
     {
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'safehaven');
-
     }
 
-    /**
-     * @return void
-     */
     public function getInitializeMacros(): void
     {
         Manager::initializeMacros();
     }
 
-    /**
-     * @return void
-     */
     public function loadPublishables(): void
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/config.php' => config_path('safehaven.php'),
+                __DIR__.'/../config/config.php' => config_path('safehaven.php'),
             ], 'config');
 
-
             $this->publishes([
-                __DIR__ . '/../resources/views' => resource_path('views/vendor/safehaven'),
+                __DIR__.'/../resources/views' => resource_path('views/vendor/safehaven'),
             ], 'views');
         }
     }
 
-    /**
-     * @return void
-     */
     public function loadComponents(): void
     {
         Blade::component('safeHaven-checkout', SafeHavenBladeComponent::class);

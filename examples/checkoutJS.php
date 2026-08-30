@@ -39,6 +39,6 @@
 
 use Eminisolomon\SafeHaven\SafeHaven;
 
-//Verify checkout transaction with the referenceCode from the checkout.js
-$referenceCode = "61e985180e69308aa37a7a94";
+// Verify checkout transaction with the referenceCode from the checkout.js
+$referenceCode = '61e985180e69308aa37a7a94';
 SafeHaven::checkout()->verifyTransaction($referenceCode);

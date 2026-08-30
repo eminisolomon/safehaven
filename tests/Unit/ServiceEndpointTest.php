@@ -7,15 +7,16 @@ use Eminisolomon\SafeHaven\Service\AccountService;
 use Eminisolomon\SafeHaven\Service\BillingService;
 use Eminisolomon\SafeHaven\Service\UssdPaymentService;
 use Eminisolomon\SafeHaven\Service\VirtualAccountService;
+use Eminisolomon\SafeHaven\Tests\TestCase;
 use GuzzleHttp\Psr7\Response as PsrResponse;
-use Illuminate\Http\Client\Response;
 use Mockery;
+use Psr\Http\Message\ResponseInterface;
 
-class ServiceEndpointTest extends \Eminisolomon\SafeHaven\Tests\TestCase
+class ServiceEndpointTest extends TestCase
 {
-    private function response(array $body): Response
+    private function response(array $body): ResponseInterface
     {
-        return new Response(new PsrResponse(200, [], json_encode($body)));
+        return new PsrResponse(200, ['Content-Type' => 'application/json'], json_encode($body));
     }
 
     public function test_virtual_account_transfer_status_is_requested(): void
@@ -25,7 +26,7 @@ class ServiceEndpointTest extends \Eminisolomon\SafeHaven\Tests\TestCase
             ->with('POST', 'virtual-accounts/status', ['sessionId' => 'session-123'])
             ->andReturn($this->response(['statusCode' => 200]));
 
-        $service = new VirtualAccountService();
+        $service = new VirtualAccountService;
         $service->requestor = $requestor;
 
         $this->assertSame(['statusCode' => 200], $service->getTransferStatus('session-123'));
@@ -38,7 +39,7 @@ class ServiceEndpointTest extends \Eminisolomon\SafeHaven\Tests\TestCase
             ->with('GET', 'virtual-accounts/account-123/transaction')
             ->andReturn($this->response(['statusCode' => 200]));
 
-        $service = new VirtualAccountService();
+        $service = new VirtualAccountService;
         $service->requestor = $requestor;
 
         $this->assertSame(['statusCode' => 200], $service->getTransaction('account-123'));
@@ -61,7 +62,7 @@ class ServiceEndpointTest extends \Eminisolomon\SafeHaven\Tests\TestCase
             ])
             ->andReturn($this->response(['statusCode' => 200]));
 
-        $service = new AccountService();
+        $service = new AccountService;
         $service->requestor = $requestor;
 
         $this->assertSame(
@@ -72,8 +73,8 @@ class ServiceEndpointTest extends \Eminisolomon\SafeHaven\Tests\TestCase
                 'company-ref',
                 'identity-123',
                 'RC123456',
-                'https://example.test/callback'
-            )
+                'https://example.test/callback',
+            ),
         );
     }
 
@@ -84,7 +85,7 @@ class ServiceEndpointTest extends \Eminisolomon\SafeHaven\Tests\TestCase
             ->with('GET', 'ussd-payment/banks')
             ->andReturn($this->response(['data' => []]));
 
-        $service = new UssdPaymentService();
+        $service = new UssdPaymentService;
         $service->requestor = $requestor;
 
         $this->assertSame(['data' => []], $service->getBanks());
@@ -106,7 +107,7 @@ class ServiceEndpointTest extends \Eminisolomon\SafeHaven\Tests\TestCase
             ])
             ->andReturn($this->response(['statusCode' => 200]));
 
-        $service = new UssdPaymentService();
+        $service = new UssdPaymentService;
         $service->requestor = $requestor;
 
         $this->assertSame(
@@ -116,8 +117,8 @@ class ServiceEndpointTest extends \Eminisolomon\SafeHaven\Tests\TestCase
                 'Test Merchant',
                 '901',
                 'https://example.test/callback',
-                ['bankCode' => '090286', 'accountNumber' => '0112345678']
-            )
+                ['bankCode' => '090286', 'accountNumber' => '0112345678'],
+            ),
         );
     }
 
@@ -136,7 +137,7 @@ class ServiceEndpointTest extends \Eminisolomon\SafeHaven\Tests\TestCase
             ])
             ->andReturn($this->response(['statusCode' => 200]));
 
-        $service = new BillingService();
+        $service = new BillingService;
         $service->requestor = $requestor;
 
         $this->assertSame(
@@ -146,8 +147,8 @@ class ServiceEndpointTest extends \Eminisolomon\SafeHaven\Tests\TestCase
                 '+2348012345678',
                 '0112345678',
                 1000,
-                'MTN-1GB'
-            )
+                'MTN-1GB',
+            ),
         );
     }
 }

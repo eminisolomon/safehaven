@@ -2,16 +2,16 @@
 
 namespace Eminisolomon\SafeHaven\Util;
 
-use Exception;
 use Eminisolomon\SafeHaven\Exceptions\SafeHavenException;
+use Psr\Http\Message\ResponseInterface;
 
 abstract class Util
 {
-    public static function convertToObject($response): array
+    public static function convertToObject(ResponseInterface $response): array
     {
-        $body = json_decode($response->getBody()->getContents(), true);
+        $body = json_decode((string) $response->getBody(), true);
 
-        if (!is_array($body)) {
+        if (! is_array($body)) {
             throw SafeHavenException::responseBodyNotAnArray();
         }
 

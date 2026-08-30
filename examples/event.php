@@ -4,7 +4,7 @@ use Eminisolomon\SafeHaven\Events\SafeHavenCheckoutCallbackEvent;
 use Eminisolomon\SafeHaven\Events\SafeHavenCheckoutClosedEvent;
 
 //
-//protected $listen = [
+// protected $listen = [
 //    SafeHavenCheckoutClosedEvent::class => [
 //        //CheckoutClosedListener::class,
 //    ],
@@ -15,4 +15,4 @@ use Eminisolomon\SafeHaven\Events\SafeHavenCheckoutClosedEvent;
 //    ],
 //
 //
-//];
+// ];

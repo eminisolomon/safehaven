@@ -6,6 +6,7 @@ All notable changes to `safehaven` will be documented in this file
 
 ### Added
 
+- Added a framework-neutral `SafeHavenClient` for vanilla PHP and non-Laravel frameworks.
 - Added virtual-account transfer status and transaction lookup methods.
 - Added corporate sub-account creation support.
 - Added `UssdPaymentService` with USSD bank listing and payment-reference creation.
@@ -21,6 +22,8 @@ All notable changes to `safehaven` will be documented in this file
 
 ### Changed
 
+- Replaced Laravel HTTP, Cache, Config, and Carbon usage in the SDK core with Guzzle, injectable configuration, and PSR responses.
+- Laravel-specific Facade and service-provider integrations remain available as an adapter.
 - Constrained `firebase/php-jwt` to the supported `^6.11` range.
 - Added Pest’s Laravel plugin and Mockery as development dependencies.
 - Refreshed the Composer lock file and compatible Laravel testing dependencies.

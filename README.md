@@ -1,10 +1,10 @@
-# Safe Haven MFB Laravel package
+# Safe Haven MFB PHP SDK
 
 [![Latest Version](https://img.shields.io/github/release/eminisolomon/safehaven.svg?style=flat-square)](https://github.com/eminisolomon/safehaven/releases)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/eminisolomon/safehaven.svg?style=flat-square)](https://packagist.org/packages/eminisolomon/safehaven)
 [![Total Downloads](https://img.shields.io/packagist/dt/eminisolomon/safehaven.svg?style=flat-square)](https://packagist.org/packages/eminisolomon/safehaven)
 
-Safe Haven MFB for your Laravel project made easy
+Safe Haven MFB integration for Laravel, other PHP frameworks, and vanilla PHP.
 
 ## Installation
 
@@ -20,7 +20,24 @@ Publishing the config file
 php artisan vendor:publish --provider="Eminisolomon\SafeHaven\SafeHavenServiceProvider" --tag="config"
 ```
 
-## Usage
+## Vanilla PHP and other frameworks
+
+The framework-neutral client only requires Composer and environment variables:
+
+```bash
+composer require eminisolomon/safehaven
+```
+
+```php
+use Eminisolomon\SafeHaven\SafeHavenClient;
+
+$safeHaven = SafeHavenClient::fromEnvironment();
+$accounts = $safeHaven->account()->getAccounts();
+```
+
+Set `SAFE_HAVEN_CLIENT_ID`, `SAFE_HAVEN_COMPANY_DOMAIN`, and `SAFE_HAVEN_PRIVATE_KEY`. Use `SAFE_HAVEN_ENVIRONMENT=production` for live requests.
+
+## Laravel usage
 
 ```php
 
@@ -65,7 +82,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ### Security
 
-If you discover any security-related issues, please email realsolomon@outlook.com instead of using the issue tracker.
+If you discover any security-related issues, please email <iamsolomonolatunji@gmail.com> instead of using the issue tracker.
 
 ## Credits
 

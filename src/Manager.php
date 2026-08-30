@@ -2,7 +2,6 @@
 
 namespace Eminisolomon\SafeHaven;
 
-
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
@@ -10,7 +9,6 @@ use Illuminate\Support\Traits\Macroable;
 class Manager
 {
     use Macroable;
-
 
     /**
      * @var null|callable
@@ -21,15 +19,16 @@ class Manager
 
     private static function getInstance($class)
     {
-        if (!isset(self::$instances[$class])) {
-            self::$instances[$class] = new $class();
+        if (! isset(self::$instances[$class])) {
+            self::$instances[$class] = new $class;
         }
+
         return self::$instances[$class];
     }
 
     public static function initializeMacros(): void
     {
-        $services = SafeHaven::config('services');
+        $services = \config('safehaven.services', []);
 
         foreach ($services as $name => $class) {
             self::macro($name, function () use ($class) {
@@ -41,8 +40,8 @@ class Manager
     /**
      * Get an item out of the config using dot notation.
      *
-     * @param string $key
-     * @param mixed|null $default
+     * @param  string  $key
+     * @param  mixed|null  $default
      * @return mixed
      */
     public function config($key, $default = null)
@@ -62,8 +61,6 @@ class Manager
     /**
      * A callback function used to access configuration. By default this
      * is null, which will fall through to Laravel's `config` function.
-     *
-     * @param  $callback
      */
     public function getConfigUsing($callback)
     {

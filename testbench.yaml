@@ -1,0 +1,16 @@
+laravel: '@testbench'
+
+providers:
+  - Eminisolomon\SafeHaven\SafeHavenServiceProvider
+
+workbench:
+  start: '/'
+  install: false
+  health: false
+  discovers:
+    web: true
+    api: true
+    commands: true
+    components: false
+    factories: false
+    views: false

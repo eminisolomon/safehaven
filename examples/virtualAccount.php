@@ -2,9 +2,8 @@
 
 use Eminisolomon\SafeHaven\SafeHaven;
 
-
-//Create a virtual account
-$accountName = "John timothy";
+// Create a virtual account
+$accountName = 'John timothy';
 $validFor = 900;
 $amountControl = 'Fixed';
 $bankCode = '999240';
@@ -17,28 +16,23 @@ SafeHaven::virtual()->createAccount(
     $amountControl,
     $bankCode,
     $accountNumber,
-    $amount
+    $amount,
 );
 
-
-
-//Get a virtual account by ID
-$accountId = "65ae3938c88b2b0024e4dbaa";
+// Get a virtual account by ID
+$accountId = '65ae3938c88b2b0024e4dbaa';
 SafeHaven::virtual()->getAccount($accountId);
 
-
-//Update virtual account by ID
-$accountId = "65ae3e40c88b2b0024e4e1c7";
+// Update virtual account by ID
+$accountId = '65ae3e40c88b2b0024e4e1c7';
 SafeHaven::virtual()->updateAccount($accountId);
 
-
-
-//Delete a virtual account using the account ID
-$accountId = "65ae3938c88b2b0024e4dbaa";
+// Delete a virtual account using the account ID
+$accountId = '65ae3938c88b2b0024e4dbaa';
 SafeHaven::virtual()->deleteAccount($accountId);
 
 // Get the status of a transfer into a virtual account
-SafeHaven::virtual()->getTransferStatus("session-id");
+SafeHaven::virtual()->getTransferStatus('session-id');
 
 // Get the transaction associated with a virtual account
 SafeHaven::virtual()->getTransaction($accountId);

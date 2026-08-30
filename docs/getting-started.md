@@ -2,6 +2,10 @@
 
 ### Base Installation
 
+The SDK core supports vanilla PHP and non-Laravel frameworks through
+`Eminisolomon\SafeHaven\SafeHavenClient`. Laravel applications can continue using
+the `SafeHaven` facade and published configuration.
+
 SafeHaven Laravel can be installed via Composer:
 
 ```bash

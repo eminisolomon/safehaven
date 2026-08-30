@@ -9,17 +9,17 @@ class CheckoutService extends AbstractService
 {
     /**
      * Verify Checkout Transaction
-     * @param int $referenceCode
-     * @return array
+     *
+     * @param  int  $referenceCode
+     *
      * @throws SafeHavenException
      */
     public function verifyTransaction(string $referenceCode): array
     {
-        $response =  $this->requestor->request('GET',
-            $this->buildPath('checkout/%s/verify', $referenceCode)
+        $response = $this->requestor->request('GET',
+            $this->buildPath('checkout/%s/verify', $referenceCode),
         );
 
-        return  Util::convertToObject($response);
+        return Util::convertToObject($response);
     }
-
 }

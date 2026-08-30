@@ -10,7 +10,6 @@ class UssdPaymentService extends AbstractService
     /**
      * Get the banks supported for USSD payments.
      *
-     * @return array
      * @throws SafeHavenException
      */
     public function getBanks(): array
@@ -23,12 +22,8 @@ class UssdPaymentService extends AbstractService
     /**
      * Create a USSD payment reference.
      *
-     * @param string|int|float $amount
-     * @param string $merchantName
-     * @param string $ussdBankCode
-     * @param string $callbackUrl
-     * @param array{bankCode:string,accountNumber:string} $settlementAccount
-     * @return array
+     * @param  array{bankCode:string,accountNumber:string}  $settlementAccount
+     *
      * @throws SafeHavenException
      */
     public function createReference(
@@ -36,7 +31,7 @@ class UssdPaymentService extends AbstractService
         string $merchantName,
         string $ussdBankCode,
         string $callbackUrl,
-        array $settlementAccount
+        array $settlementAccount,
     ): array {
         $payload = [
             'amount' => (string) $amount,

@@ -5,16 +5,14 @@ namespace Eminisolomon\SafeHaven\Service;
 use Eminisolomon\SafeHaven\ApiRequestor;
 use Eminisolomon\SafeHaven\Exceptions\SafeHavenException;
 
-abstract  class AbstractService
+abstract class AbstractService
 {
-
     public $requestor;
 
-    public function __construct()
+    public function __construct(?ApiRequestor $requestor = null)
     {
-        $this->requestor = new ApiRequestor;
+        $this->requestor = $requestor ?? new ApiRequestor;
     }
-
 
     /**
      * @throws SafeHavenException
@@ -22,12 +20,11 @@ abstract  class AbstractService
     protected function buildPath($basePath, ...$ids)
     {
         foreach ($ids as $id) {
-            if (null === $id || '' === \trim($id)) {
+            if ($id === null || \trim($id) === '') {
                 throw SafeHavenException::invalidArgument();
             }
         }
 
         return \sprintf($basePath, ...\array_map('\urlencode', $ids));
     }
-
 }

@@ -40,7 +40,7 @@ Before submitting a pull request:
 
 If the project maintainer has any additional requirements, you will find them listed here.
 
-- **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - The easiest way to apply the conventions is to install [PHP Code Sniffer](https://pear.php.net/package/PHP_CodeSniffer).
+- **Laravel Pint formatting** - Run `composer format` to format the code or `composer lint:check` to verify formatting without changing files.
 
 - **Add tests!** - Your patch won't be accepted if it doesn't have tests.
 
@@ -65,6 +65,7 @@ Run the checks locally:
 ```bash
 composer test
 composer validate --strict --no-check-publish
+composer check
 ```
 
 The tests are organized as follows:
